@@ -1,3 +1,5 @@
+package staticData;
+
 public class ExceptionMessages {
 
     public static final String DATA_ALREADY_INITIALIZED = "Data already initialized!";
