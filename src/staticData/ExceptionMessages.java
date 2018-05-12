@@ -6,4 +6,7 @@ public class ExceptionMessages {
     public static final String DATA_NOT_INITIALIZED = "Data not initialized!";
     public static final String NON_EXISTING_COURSE = "Non-existing course!";
     public static final String NON_EXISTING_STUDENT = "Non-existing student!";
+    public static final String INVALID_DESTINATION = "Invalid destination!";
+    public static final String INVALID_PATH = "Invalid path!";
+
 }
