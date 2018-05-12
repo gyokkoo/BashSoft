@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.LinkedList;
 
-public class Main {
+public class Program {
 
     public static void traverseDirectory(String path) {
         LinkedList<File> subFolders = new LinkedList<>();
@@ -23,6 +23,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        traverseDirectory("C:\\Program Files (x86)");
+        // traverseDirectory("C:\\Program Files (x86)");
+        StudentsRepository.initializeData();
+        StudentsRepository.getStudentsByCourse("Unity");
     }
 }
