@@ -2,32 +2,36 @@ package repository;
 
 import io.OutputWriter;
 import staticData.ExceptionMessages;
+import staticData.SessionData;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.List;
 
-public class StudentsRepository {
+public class StudentRepository {
 
     public static boolean isDataInitialized = false;
     public static HashMap<String, HashMap<String, ArrayList<Integer>>> studentsByCourse;
 
-    public static void initializeData() {
+    public static void initializeData(String fileName) throws IOException {
         if (isDataInitialized) {
             System.out.println(ExceptionMessages.DATA_ALREADY_INITIALIZED);
             return;
         }
 
         studentsByCourse = new HashMap<>();
-        readData();
+        readData(fileName);
     }
 
-    private static void readData() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+    private static void readData(String fileName) throws IOException {
+        String path = SessionData.currentPath + "\\" + fileName;
+        List<String> lines = Files.readAllLines(Paths.get(path));
 
-        while (!input.equals("")) {
-            String[] tokens = input.split("\\s+");
+        for (String line : lines) {
+            String[] tokens = line.split("\\s+");
             String course = tokens[0];
             String student = tokens[1];
             Integer mark = Integer.parseInt(tokens[2]);
@@ -41,7 +45,6 @@ public class StudentsRepository {
             }
 
             studentsByCourse.get(course).get(student).add(mark);
-            input = scanner.nextLine();
         }
 
         isDataInitialized = true;
