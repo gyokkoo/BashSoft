@@ -68,7 +68,7 @@ public class IOManager {
             // go one directory down
             String currentPath = SessionData.currentPath;
             currentPath += "\\" + relativePath;
-            changeCurrentDirRelativePath(currentPath);
+            changeCurrentDirAbsolute(currentPath);
         }
     }
 

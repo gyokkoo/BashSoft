@@ -1,6 +1,7 @@
 package io;
 
 import judge.Tester;
+import network.DownloadManager;
 import repository.StudentRepository;
 import staticData.ExceptionMessages;
 import staticData.SessionData;
@@ -48,10 +49,36 @@ public class CommandInterpreter {
             case "help":
                 tryGetHelp(input, data);
                 break;
+            case "download":
+                tryDownloadFile(command, data);
+                break;
+            case "downloadAsynch":
+                tryDownloadFileOnNewThread(command, data);
+                break;
             default:
                 displayInvalidCommandMessage(input);
                 break;
         }
+    }
+
+    private static void tryDownloadFileOnNewThread(String command, String[] data) {
+        if (data.length != 2) {
+            displayInvalidCommandMessage(command);
+            return;
+        }
+
+        String fileUrl = data[1];
+        DownloadManager.download(fileUrl);
+    }
+
+    private static void tryDownloadFile(String command, String[] data) {
+        if (data.length != 2) {
+            displayInvalidCommandMessage(command);
+            return;
+        }
+
+        String fileUrl = data[1];
+        DownloadManager.download(fileUrl);
     }
 
     private static void tryPrintOrderedStudents(String input, String[] data) {
@@ -91,17 +118,24 @@ public class CommandInterpreter {
     }
 
     private static void tryPrintFilteredStudents(String input, String[] data) {
-        if (data.length != 5) {
+        if (data.length != 3 && data.length != 4) {
             displayInvalidCommandMessage(input);
             return;
         }
 
         String course = data[1];
-        String filter = data[2].toLowerCase();
-        String takeCommand = data[3].toLowerCase();
-        String takeQuantity = data[4].toLowerCase();
+        String filter = data[2];
 
-        tryParseParametersForFilter(takeCommand, takeQuantity, course, filter);
+        if (data.length == 3) {
+            StudentRepository.printFilteredStudents(course, filter, null);
+            return;
+        }
+
+        Integer numberOfStudents = Integer.valueOf(data[3]);
+
+        if (data.length == 4) {
+            StudentRepository.printFilteredStudents(course, filter, numberOfStudents);
+        }
     }
 
     private static void tryParseParametersForFilter(
