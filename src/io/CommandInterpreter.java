@@ -35,12 +35,32 @@ public class CommandInterpreter {
             case "readDb":
                 tryReadDatabaseFromFile(input, data);
                 break;
+            case "show":
+                tryShowWantedCourse(input, data);
+                break;
             case "help":
                 tryGetHelp(input, data);
                 break;
             default:
                 displayInvalidCommandMessage(input);
                 break;
+        }
+    }
+
+    private static void tryShowWantedCourse(String input, String[] data) {
+        if (data.length != 2 && data.length != 3) {
+            displayInvalidCommandMessage(input);
+        }
+
+        if (data.length == 2) {
+            String courseName = data[1];
+            StudentRepository.getStudentsByCourse(courseName);
+        }
+
+        if (data.length == 3) {
+            String courseName = data[1];
+            String userName = data[2];
+            StudentRepository.getStudentMarksInCourse(courseName, userName);
         }
     }
 
