@@ -7,20 +7,18 @@ import staticData.SessionData;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StudentRepository {
 
-    public static boolean isDataInitialized = false;
-    public static HashMap<String, HashMap<String, ArrayList<Integer>>> studentsByCourse;
+    private static boolean isDataInitialized = false;
+    private static HashMap<String, HashMap<String, ArrayList<Integer>>> studentsByCourse;
 
     public static void initializeData(String fileName) throws IOException {
         if (isDataInitialized) {
-            System.out.println(ExceptionMessages.DATA_ALREADY_INITIALIZED);
+            OutputWriter.displayException(ExceptionMessages.DATA_ALREADY_INITIALIZED);
             return;
         }
 
@@ -44,14 +42,15 @@ public class StudentRepository {
                 String student = matcher.group(2);
                 Integer mark = Integer.parseInt(matcher.group(3));
 
-                if (0 <= mark && mark <= 100) {
+                if (mark >= 0 && mark <= 100) {
                     if (!studentsByCourse.containsKey(course)) {
-                        studentsByCourse.put(course, new HashMap<>());
+                        studentsByCourse.put(course, new LinkedHashMap<>());
                     }
 
                     if (!studentsByCourse.get(course).containsKey(student)) {
                         studentsByCourse.get(course).put(student, new ArrayList<>());
                     }
+
                     studentsByCourse.get(course).get(student).add(mark);
                 }
             }
@@ -59,6 +58,30 @@ public class StudentRepository {
 
         isDataInitialized = true;
         OutputWriter.writeMessageOnNewLine("Data read.");
+    }
+
+    public static void printFilteredStudents(String course, String filter, Integer numberOfStudents) {
+        if (! isQueryForCoursePossible(course)) {
+            return;
+        }
+
+        if (numberOfStudents == null) {
+            numberOfStudents = studentsByCourse.get(course).size();
+        }
+
+        RepositoryFilters.printFilteredStudents(studentsByCourse.get(course), filter, numberOfStudents);
+    }
+
+    public static void printOrderedStudents(String course, String compareType, Integer numberOfStudents) {
+        if (!isQueryForCoursePossible(course)) {
+            return;
+        }
+
+        if (numberOfStudents == null) {
+            numberOfStudents = studentsByCourse.get(course).size();
+        }
+
+        RepositorySorters.printSortedStudents(studentsByCourse.get(course), compareType, numberOfStudents);
     }
 
     public static void getStudentMarksInCourse(String course, String student) {
@@ -76,7 +99,9 @@ public class StudentRepository {
         }
 
         OutputWriter.writeMessageOnNewLine(course + ":");
-        studentsByCourse.get(course).forEach(OutputWriter::printStudent);
+        for (Map.Entry<String, ArrayList<Integer>> student : studentsByCourse.get(course).entrySet()) {
+            OutputWriter.printStudent(student.getKey(), student.getValue());
+        }
     }
 
     private static boolean isQueryForCoursePossible(String courseName) {
@@ -104,5 +129,37 @@ public class StudentRepository {
         }
 
         return true;
+    }
+
+    public static void filterAndTake(String courseName, String filter) {
+        int studentsToTake = studentsByCourse.get(courseName).size();
+        filterAndTake(courseName, filter, studentsToTake);
+    }
+
+    public static void filterAndTake(
+            String courseName, String filter, int studentsToTake) {
+        if (!isQueryForCoursePossible(courseName)) {
+            return;
+        }
+
+        RepositoryFilters.printFilteredStudents(
+                studentsByCourse.get(courseName),
+                filter, studentsToTake);
+    }
+
+    public static void orderAndTake(
+            String courseName, String orderType, int studentsToTake) {
+        if (!isQueryForCoursePossible(courseName)) {
+            return;
+        }
+
+        RepositorySorters.printSortedStudents(
+                studentsByCourse.get(courseName),
+                orderType, studentsToTake);
+    }
+
+    public static void orderAndTake(String courseName, String orderType) {
+        int studentsToTake = studentsByCourse.get(courseName).size();
+        orderAndTake(courseName, orderType, studentsToTake);
     }
 }

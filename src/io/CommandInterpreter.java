@@ -2,6 +2,7 @@ package io;
 
 import judge.Tester;
 import repository.StudentRepository;
+import staticData.ExceptionMessages;
 import staticData.SessionData;
 
 import java.awt.*;
@@ -38,12 +39,89 @@ public class CommandInterpreter {
             case "show":
                 tryShowWantedCourse(input, data);
                 break;
+            case "filter":
+                tryPrintFilteredStudents(input, data);
+                break;
+            case "order":
+                tryPrintOrderedStudents(input, data);
+                break;
             case "help":
                 tryGetHelp(input, data);
                 break;
             default:
                 displayInvalidCommandMessage(input);
                 break;
+        }
+    }
+
+    private static void tryPrintOrderedStudents(String input, String[] data) {
+        if (data.length != 5) {
+            displayInvalidCommandMessage(input);
+            return;
+        }
+
+        String courseName = data[1];
+        String orderType = data[2].toLowerCase();
+        String takeCommand = data[3].toLowerCase();
+        String takeQuantity = data[4].toLowerCase();
+
+//        StudentsRepository.printOrderedStudents(courseName, modifier, numberOfStudents);
+        tryParseParametersForOrder(takeCommand, takeQuantity, courseName, orderType);
+    }
+
+    private static void tryParseParametersForOrder(
+            String takeCommand, String takeQuantity,
+            String courseName, String orderType) {
+        if (!takeCommand.equals("take")) {
+            OutputWriter.displayException(ExceptionMessages.INVALID_TAKE_COMMAND);
+            return;
+        }
+
+        if (takeQuantity.equals("all")) {
+            StudentRepository.orderAndTake(courseName, orderType);
+            return;
+        }
+
+        try {
+            int studentsToTake = Integer.parseInt(takeQuantity);
+            StudentRepository.orderAndTake(courseName, orderType, studentsToTake);
+        } catch (NumberFormatException nfe) {
+            OutputWriter.displayException(ExceptionMessages.IVALID_TAKE_QUANTITY_PARAMETER);
+        }
+    }
+
+    private static void tryPrintFilteredStudents(String input, String[] data) {
+        if (data.length != 5) {
+            displayInvalidCommandMessage(input);
+            return;
+        }
+
+        String course = data[1];
+        String filter = data[2].toLowerCase();
+        String takeCommand = data[3].toLowerCase();
+        String takeQuantity = data[4].toLowerCase();
+
+        tryParseParametersForFilter(takeCommand, takeQuantity, course, filter);
+    }
+
+    private static void tryParseParametersForFilter(
+            String takeCommand, String takeQuantity,
+            String courseName, String filter) {
+        if (!takeCommand.equals("take")) {
+            OutputWriter.displayException(ExceptionMessages.INVALID_TAKE_COMMAND);
+            return;
+        }
+
+        if (takeQuantity.equals("all")) {
+            StudentRepository.filterAndTake(courseName, filter);
+            return;
+        }
+
+        try {
+            int studentsToTake = Integer.parseInt(takeQuantity);
+            StudentRepository.filterAndTake(courseName, filter, studentsToTake);
+        } catch (NumberFormatException nfe) {
+            OutputWriter.displayException(ExceptionMessages.IVALID_TAKE_QUANTITY_PARAMETER);
         }
     }
 
