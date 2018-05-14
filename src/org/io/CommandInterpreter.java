@@ -1,10 +1,10 @@
-package io;
+package org.io;
 
-import judge.Tester;
-import network.DownloadManager;
-import repository.StudentsRepository;
-import staticData.ExceptionMessages;
-import staticData.SessionData;
+import org.judge.Tester;
+import org.network.DownloadManager;
+import org.repository.StudentsRepository;
+import org.staticData.ExceptionMessages;
+import org.staticData.SessionData;
 
 import java.awt.*;
 import java.io.File;
@@ -42,9 +42,11 @@ public class CommandInterpreter {
                 tryCompareFiles(input, data);
                 break;
             case "changeDirRel":
+            case "cdrel":
                 tryChangeRelativePath(input, data);
                 break;
             case "changeDirAbs":
+            case "cdabs":
                 tryChangeAbsolutePath(input, data);
                 break;
             case "readDb":
@@ -166,26 +168,22 @@ public class CommandInterpreter {
         if (data.length == 3) {
             String courseName = data[1];
             String userName = data[2];
-            this.repository.getStudentMarksInCourse(courseName, userName);
+            this.repository.getStudentMarkInCourse(courseName, userName);
         }
     }
 
     private void tryPrintFilteredStudents(String input, String[] data) {
-        if (data.length != 3 && data.length != 4) {
+        if (data.length != 5) {
             displayInvalidCommandMessage(input);
             return;
         }
 
         String course = data[1];
-        String filter = data[2];
+        String filter = data[2].toLowerCase();
+        String takeCommand = data[3].toLowerCase();
+        String takeQuantity = data[4].toLowerCase();
 
-        if (data.length == 3) {
-            this.repository.printFilteredStudents(course, filter, null);
-            return;
-        }
-
-        Integer numberOfStudents = Integer.valueOf(data[3]);
-        this.repository.printFilteredStudents(course, filter, numberOfStudents);
+        tryParseParametersForFilter(takeCommand, takeQuantity, course, filter);
     }
 
     private void tryPrintOrderedStudents(String input, String[] data) {

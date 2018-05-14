@@ -1,7 +1,7 @@
-package repository;
+package org.repository;
 
-import io.OutputWriter;
-import staticData.ExceptionMessages;
+import org.io.OutputWriter;
+import org.staticData.ExceptionMessages;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class RepositorySorter {
 
     public void printSortedStudents(
-            HashMap<String, ArrayList<Integer>> courseData,
+            HashMap<String, Double> studentsWithMarks,
             String comparisonType,
             int numberOfStudents) {
         comparisonType = comparisonType.toLowerCase();
@@ -18,13 +18,13 @@ public class RepositorySorter {
             OutputWriter.displayException(ExceptionMessages.INVALID_COMPARISON_QUERY);
         }
 
-        Comparator<Map.Entry<String, ArrayList<Integer>>> comparator = (x, y) -> {
-            double value1 = x.getValue().stream().mapToInt(Integer::valueOf).average().getAsDouble();
-            double value2 = y.getValue().stream().mapToInt(Integer::valueOf).average().getAsDouble();
+        Comparator<Map.Entry<String, Double>> comparator = (x, y) -> {
+            double value1 = x.getValue();
+            double value2 = y.getValue();
             return Double.compare(value1, value2);
         };
 
-        List<String> sortedStudents = courseData.entrySet()
+        List<String> sortedStudents = studentsWithMarks.entrySet()
                 .stream()
                 .sorted(comparator)
                 .limit(numberOfStudents)
@@ -36,7 +36,7 @@ public class RepositorySorter {
         }
 
         for (String student : sortedStudents) {
-            OutputWriter.printStudent(student, courseData.get(student));
+            OutputWriter.printStudent(student, studentsWithMarks.get(student));
         }
     }
 }

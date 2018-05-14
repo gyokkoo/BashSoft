@@ -1,8 +1,8 @@
-package network;
+package org.network;
 
-import io.OutputWriter;
-import staticData.ExceptionMessages;
-import staticData.SessionData;
+import org.io.OutputWriter;
+import org.staticData.ExceptionMessages;
+import org.staticData.SessionData;
 
 import java.io.File;
 import java.io.FileOutputStream;

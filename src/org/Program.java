@@ -1,12 +1,14 @@
-import io.CommandInterpreter;
-import io.IOManager;
-import io.InputReader;
-import io.OutputWriter;
-import judge.Tester;
-import network.DownloadManager;
-import repository.RepositoryFilter;
-import repository.RepositorySorter;
-import repository.StudentsRepository;
+package org;
+
+import org.io.CommandInterpreter;
+import org.io.IOManager;
+import org.io.InputReader;
+import org.io.OutputWriter;
+import org.judge.Tester;
+import org.network.DownloadManager;
+import org.repository.RepositoryFilter;
+import org.repository.RepositorySorter;
+import org.repository.StudentsRepository;
 
 public class Program {
 

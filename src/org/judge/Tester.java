@@ -1,6 +1,6 @@
-package judge;
+package org.judge;
 
-import io.OutputWriter;
+import org.io.OutputWriter;
 
 import java.io.*;
 import java.util.ArrayList;

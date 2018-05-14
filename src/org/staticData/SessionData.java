@@ -1,4 +1,4 @@
-package staticData;
+package org.staticData;
 
 import java.util.HashSet;
 

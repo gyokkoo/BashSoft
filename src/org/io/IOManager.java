@@ -1,7 +1,7 @@
-package io;
+package org.io;
 
-import staticData.ExceptionMessages;
-import staticData.SessionData;
+import org.staticData.ExceptionMessages;
+import org.staticData.SessionData;
 
 import java.io.File;
 import java.util.LinkedList;

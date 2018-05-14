@@ -1,15 +1,15 @@
-package repository;
+package org.repository;
 
-import io.OutputWriter;
-import staticData.ExceptionMessages;
+import org.io.OutputWriter;
+import org.staticData.ExceptionMessages;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Predicate;
 
 public class RepositoryFilter {
+
     public void printFilteredStudents(
-            HashMap<String, ArrayList<Integer>> courseData,
+            HashMap<String, Double> studentsWithMarks,
             String filterType,
             Integer numberOfStudents) {
         Predicate<Double> filter = createFilter(filterType);
@@ -19,17 +19,14 @@ public class RepositoryFilter {
         }
 
         int studentsCount = 0;
-        for (String student : courseData.keySet()) {
-            if (studentsCount == numberOfStudents) {
+        for (String student : studentsWithMarks.keySet()) {
+            if (studentsCount >= numberOfStudents) {
                 break;
             }
 
-            ArrayList<Integer> studentMarks = courseData.get(student);
-            Double averageMark = studentMarks.stream().mapToInt(Integer::valueOf).average().getAsDouble();
-            Double percentageOfFulfilment = averageMark / 100;
-            Double mark = percentageOfFulfilment * 4 + 2;
+            Double mark = studentsWithMarks.get(student);
             if (filter.test(mark)) {
-                OutputWriter.printStudent(student, studentMarks);
+                OutputWriter.printStudent(student, mark);
                 studentsCount++;
             }
         }

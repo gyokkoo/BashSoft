@@ -1,12 +1,4 @@
-package io;
-
-import staticData.ExceptionMessages;
-import staticData.SessionData;
-
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
+package org.io;
 
 public class OutputWriter {
 
@@ -26,8 +18,8 @@ public class OutputWriter {
         System.out.println(message);
     }
 
-    public static void printStudent(String name, List<Integer> marks) {
-        String output = String.format("%s - %s", name, marks.toString());
+    public static void printStudent(String name, Double mark) {
+        String output = String.format("%s - %s", name, mark);
         OutputWriter.writeMessageOnNewLine(output);
     }
 
