@@ -6,9 +6,9 @@ import staticData.ExceptionMessages;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RepositorySorters {
+public class RepositorySorter {
 
-    public static void printSortedStudents(
+    public void printSortedStudents(
             HashMap<String, ArrayList<Integer>> courseData,
             String comparisonType,
             int numberOfStudents) {
@@ -28,7 +28,7 @@ public class RepositorySorters {
                 .stream()
                 .sorted(comparator)
                 .limit(numberOfStudents)
-                .map(x -> x.getKey())
+                .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
         if (comparisonType.equals("descending")) {

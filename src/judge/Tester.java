@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Tester {
 
-    public static void compareContent(String actualOutput, String expectedOutput) {
+    public void compareContent(String actualOutput, String expectedOutput) {
         OutputWriter.writeMessageOnNewLine("Reading files...");
         String mismatchPath = getMismatchPath(expectedOutput);
         List<String> actualOutputString = readTextFile(actualOutput);
@@ -22,7 +22,7 @@ public class Tester {
         }
     }
 
-    private static boolean compareStrings(
+    private boolean compareStrings(
             List<String> actualOutputString,
             List<String> expectedOutputString,
             String mismatchPath) {
@@ -56,7 +56,7 @@ public class Tester {
         return isMismatch;
     }
 
-    private static List<String> readTextFile(String filePath) {
+    private List<String> readTextFile(String filePath) {
         List<String> text = new ArrayList<>();
         try {
             File file = new File(filePath);
@@ -78,7 +78,7 @@ public class Tester {
         return text;
     }
 
-    private static String getMismatchPath(String expectedOutput) {
+    private String getMismatchPath(String expectedOutput) {
         int index = expectedOutput.lastIndexOf("\\");
         if (index == -1) {
             return "\\mismatch.txt";

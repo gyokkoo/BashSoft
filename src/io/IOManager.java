@@ -9,17 +9,7 @@ import java.util.Objects;
 
 public class IOManager {
 
-    public static void createDirectoryInCurrentFolder(String name) {
-        String path = getCurrentDirectoryPath() + "\\" + name;
-        File file = new File(path);
-        file.mkdir();
-    }
-
-    private static String getCurrentDirectoryPath() {
-        return SessionData.currentPath;
-    }
-
-    public static void traverseDirectory(int depth) {
+    public void traverseDirectory(int depth) {
         LinkedList<File> subFolders = new LinkedList<>();
 
         String path = SessionData.currentPath;
@@ -53,7 +43,13 @@ public class IOManager {
         }
     }
 
-    public static void changeCurrentDirRelativePath(String relativePath) {
+    public void createDirectoryInCurrentFolder(String name) {
+        String path = getCurrentDirectoryPath() + "\\" + name;
+        File file = new File(path);
+        file.mkdir();
+    }
+
+    public void changeCurrentDirRelativePath(String relativePath) {
         if (relativePath.equals("..")) {
             // go one directory up
             try {
@@ -72,7 +68,7 @@ public class IOManager {
         }
     }
 
-    public static void changeCurrentDirAbsolute(String absolutePath) {
+    public void changeCurrentDirAbsolute(String absolutePath) {
         File file = new File(absolutePath);
         if (!file.exists()) {
             OutputWriter.displayException(ExceptionMessages.INVALID_PATH);
@@ -80,5 +76,9 @@ public class IOManager {
         }
 
         SessionData.currentPath = absolutePath;
+    }
+
+    private String getCurrentDirectoryPath() {
+        return SessionData.currentPath;
     }
 }

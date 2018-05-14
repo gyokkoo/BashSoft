@@ -9,14 +9,20 @@ public class InputReader {
 
     private static final String END_COMMAND = "quit";
 
-    public static void readCommands() {
+    private CommandInterpreter interpreter;
+
+    public InputReader(CommandInterpreter interpreter) {
+        this.interpreter = interpreter;
+    }
+
+    public void readCommands() {
         OutputWriter.writeMessage(SessionData.currentPath + " > ");
 
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         while (!END_COMMAND.equals(input)) {
             try {
-                CommandInterpreter.interpretCommand(input);
+                this.interpreter.interpretCommand(input);
             } catch (IOException e) {
                 OutputWriter.displayException(e.getMessage());
             }
