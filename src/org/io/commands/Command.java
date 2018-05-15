@@ -1,26 +1,27 @@
 package org.io.commands;
 
+import org.contracts.DirectoryManager;
+import org.contracts.Executable;
 import org.exceptions.InvalidCommandException;
-import org.io.IOManager;
 import org.judge.Tester;
 import org.network.DownloadManager;
 import org.repository.StudentsRepository;
 
-public abstract class Command {
+public abstract class Command implements Executable{
 
     private String input;
     private String[] data;
 
     private StudentsRepository repository;
     private Tester tester;
-    private IOManager ioManager;
+    private DirectoryManager ioManager;
     private DownloadManager downloadManager;
 
     protected Command(String input,
                    String[] data,
                    StudentsRepository repository,
                    Tester tester,
-                   IOManager ioManager,
+                   DirectoryManager ioManager,
                    DownloadManager downloadManager) {
         this.setInput(input);
         this.setData(data);
@@ -40,7 +41,7 @@ public abstract class Command {
         return tester;
     }
 
-    protected IOManager getIoManager() {
+    protected DirectoryManager getIoManager() {
         return ioManager;
     }
 

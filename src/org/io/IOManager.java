@@ -1,16 +1,16 @@
 package org.io;
 
+import org.contracts.DirectoryManager;
 import org.exceptions.InvalidFileNameException;
 import org.exceptions.InvalidPathException;
 import org.staticData.SessionData;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
 
-public class IOManager {
+public class IOManager implements DirectoryManager {
 
     public void traverseDirectory(int depth) {
         Queue<File> subFolders = new LinkedList<>();
@@ -55,7 +55,7 @@ public class IOManager {
         }
     }
 
-    public void changeCurrentDirRelativePath(String relativePath) throws IOException {
+    public void changeCurrentDirRelativePath(String relativePath) {
         if (relativePath.equals("..")) {
             // go one directory up
             try {

@@ -1,20 +1,23 @@
 package org.io;
 
+import org.contracts.DirectoryManager;
+import org.contracts.Executable;
+import org.contracts.Interpreter;
 import org.exceptions.InvalidInputException;
 import org.io.commands.*;
 import org.judge.Tester;
 import org.network.DownloadManager;
 import org.repository.StudentsRepository;
 
-public class CommandInterpreter {
+public class CommandInterpreter implements Interpreter{
 
     private Tester tester;
     private StudentsRepository repository;
     private DownloadManager downloadManager;
-    private IOManager inputOutputManager;
+    private DirectoryManager inputOutputManager;
 
     public CommandInterpreter(Tester tester, StudentsRepository repository, DownloadManager downloadManager,
-                               IOManager inputOutputManager) {
+                              DirectoryManager inputOutputManager) {
         this.tester = tester;
         this.repository = repository;
         this.downloadManager = downloadManager;
@@ -25,14 +28,14 @@ public class CommandInterpreter {
         String[] data = input.split("\\s+");
         String commandName = data[0].toLowerCase();
         try {
-            Command command = parseCommand(input, data, commandName);
+            Executable command = parseCommand(input, data, commandName);
             command.execute();
         } catch (Throwable t) {
             OutputWriter.displayException(t.getMessage());
         }
     }
 
-    private Command parseCommand(String input, String[] data, String command) {
+    private Executable parseCommand(String input, String[] data, String command) {
         switch (command) {
             case "open":
                 return new OpenFileCommand(input, data, this.repository,

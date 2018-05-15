@@ -1,5 +1,7 @@
 package org;
 
+import org.contracts.DirectoryManager;
+import org.contracts.Interpreter;
 import org.io.CommandInterpreter;
 import org.io.IOManager;
 import org.io.InputReader;
@@ -15,12 +17,12 @@ public class Program {
     public static void main(String[] args) {
         Tester tester = new Tester();
         DownloadManager downloadManager = new DownloadManager();
-        IOManager ioManager = new IOManager();
+        DirectoryManager ioManager = new IOManager();
         RepositorySorter repositorySorter = new RepositorySorter();
         RepositoryFilter repositoryFilter = new RepositoryFilter();
         StudentsRepository repository = new StudentsRepository(repositoryFilter, repositorySorter);
 
-        CommandInterpreter interpreter = new CommandInterpreter(
+        Interpreter interpreter = new CommandInterpreter(
                 tester, repository, downloadManager, ioManager);
         InputReader reader = new InputReader(interpreter);
 
@@ -29,6 +31,5 @@ public class Program {
         } catch (Exception e) {
             OutputWriter.displayException(e.getMessage());
         }
-
     }
 }

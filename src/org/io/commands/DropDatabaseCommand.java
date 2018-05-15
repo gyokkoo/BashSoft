@@ -1,8 +1,7 @@
 package org.io.commands;
 
-
+import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
-import org.io.IOManager;
 import org.io.OutputWriter;
 import org.judge.Tester;
 import org.network.DownloadManager;
@@ -14,7 +13,7 @@ public class DropDatabaseCommand extends Command {
                                String[] data,
                                StudentsRepository repository,
                                Tester tester,
-                               IOManager ioManager,
+                               DirectoryManager ioManager,
                                DownloadManager downloadManager) {
         super(input, data, repository, tester, ioManager, downloadManager);
     }

@@ -1,7 +1,7 @@
 package org.io.commands;
 
+import org.contracts.DirectoryManager;
 import org.exceptions.InvalidInputException;
-import org.io.IOManager;
 import org.io.OutputWriter;
 import org.judge.Tester;
 import org.network.DownloadManager;
@@ -13,7 +13,7 @@ public class GetHelpCommand extends Command {
                           String[] data,
                           StudentsRepository repository,
                           Tester tester,
-                          IOManager ioManager,
+                          DirectoryManager ioManager,
                           DownloadManager downloadManager) {
         super(input, data, repository, tester, ioManager, downloadManager);
     }
