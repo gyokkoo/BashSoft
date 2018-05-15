@@ -1,5 +1,7 @@
 package org.models;
 
+import org.contracts.Course;
+import org.contracts.Student;
 import org.exceptions.DuplicateEntryException;
 import org.exceptions.InvalidStringException;
 import org.staticData.ExceptionMessages;
@@ -9,13 +11,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Student {
+public class OnlineStudent implements Student {
 
     private String userName;
     private LinkedHashMap<String, Course> enrolledCourses;
     private LinkedHashMap<String, Double> marksByCourseName;
 
-    public Student(String userName) {
+    public OnlineStudent(String userName) {
         this.setUserName(userName);
         this.enrolledCourses = new LinkedHashMap<>();
         this.marksByCourseName = new LinkedHashMap<>();
@@ -54,7 +56,7 @@ public class Student {
             throw new IllegalArgumentException(ExceptionMessages.NOT_ENROLLED_IN_COURSE);
         }
 
-        if (scores.length > Course.NUMBER_OF_TASKS_ON_EXAM) {
+        if (scores.length > OnlineCourse.NUMBER_OF_TASKS_ON_EXAM) {
             throw new IllegalArgumentException(ExceptionMessages.INVALID_NUMBER_OF_SCORES);
         }
 
@@ -62,9 +64,14 @@ public class Student {
         this.marksByCourseName.put(courseName, mark);
     }
 
+    public String getMarkForCourse(String courseName) {
+        return String.format("%s - %f",
+                this.userName, marksByCourseName.get(courseName));
+    }
+
     private double calculateMark(int[] scores) {
         double percentageOfSolvedExam = Arrays.stream(scores).sum() /
-                (double) (Course.NUMBER_OF_TASKS_ON_EXAM * Course.MAX_SCORE_ON_EXAM);
+                (double) (OnlineCourse.NUMBER_OF_TASKS_ON_EXAM * OnlineCourse.MAX_SCORE_ON_EXAM);
         return percentageOfSolvedExam * 4 + 2;
     }
 }

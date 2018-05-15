@@ -1,20 +1,20 @@
 package org.io.commands;
 
+import org.contracts.AsynchDownloader;
+import org.contracts.ContentComparer;
+import org.contracts.Database;
 import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
-import org.judge.Tester;
-import org.network.DownloadManager;
-import org.repository.StudentsRepository;
 
 public class PrintOrderedStudentsCommand extends Command {
 
     public PrintOrderedStudentsCommand(String input,
                                        String[] data,
-                                       StudentsRepository repository,
-                                       Tester tester,
+                                       Database repository,
+                                       ContentComparer tester,
                                        DirectoryManager ioManager,
-                                       DownloadManager downloadManager) {
-        super(input, data, repository, tester, ioManager, downloadManager);
+                                       AsynchDownloader downloader) {
+        super(input, data, repository, tester, ioManager, downloader);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class PrintOrderedStudentsCommand extends Command {
         String takeCommand = this.getData()[3].toLowerCase();
         String takeQuantity = this.getData()[4].toLowerCase();
 
-//        StudentsRepository.printOrderedStudents(courseName, modifier, numberOfStudents);
+//        Database.printOrderedStudents(courseName, modifier, numberOfStudents);
         this.tryParseParametersForOrder(takeCommand, takeQuantity, courseName, orderType);
     }
 

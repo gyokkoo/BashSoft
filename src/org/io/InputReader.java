@@ -1,12 +1,13 @@
 package org.io;
 
 import org.contracts.Interpreter;
+import org.contracts.Reader;
 import org.staticData.SessionData;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class InputReader {
+public class InputReader implements Reader {
 
     private static final String END_COMMAND = "quit";
 

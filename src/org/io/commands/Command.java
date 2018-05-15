@@ -1,43 +1,39 @@
 package org.io.commands;
 
-import org.contracts.DirectoryManager;
-import org.contracts.Executable;
+import org.contracts.*;
 import org.exceptions.InvalidCommandException;
-import org.judge.Tester;
-import org.network.DownloadManager;
-import org.repository.StudentsRepository;
 
 public abstract class Command implements Executable{
 
     private String input;
     private String[] data;
 
-    private StudentsRepository repository;
-    private Tester tester;
+    private Database repository;
+    private ContentComparer tester;
     private DirectoryManager ioManager;
-    private DownloadManager downloadManager;
+    private AsynchDownloader downloadManager;
 
-    protected Command(String input,
+    public Command(String input,
                    String[] data,
-                   StudentsRepository repository,
-                   Tester tester,
+                   Database repository,
+                   ContentComparer contentComparer,
                    DirectoryManager ioManager,
-                   DownloadManager downloadManager) {
+                   AsynchDownloader downloader) {
         this.setInput(input);
         this.setData(data);
         this.repository = repository;
-        this.tester = tester;
+        this.tester = contentComparer;
         this.ioManager = ioManager;
-        this.downloadManager = downloadManager;
+        this.downloadManager = downloader;
     }
 
     public abstract void execute() throws Exception;
 
-    protected StudentsRepository getRepository() {
+    protected Database getRepository() {
         return repository;
     }
 
-    protected Tester getTester() {
+    protected ContentComparer getTester() {
         return tester;
     }
 
@@ -45,7 +41,7 @@ public abstract class Command implements Executable{
         return ioManager;
     }
 
-    protected DownloadManager getDownloadManager() {
+    protected AsynchDownloader getDownloadManager() {
         return downloadManager;
     }
 

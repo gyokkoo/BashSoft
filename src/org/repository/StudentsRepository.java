@@ -1,27 +1,31 @@
 package org.repository;
 
+import org.contracts.*;
 import org.io.OutputWriter;
-import org.models.Course;
-import org.models.Student;
+import org.models.OnlineCourse;
+import org.models.OnlineStudent;
 import org.staticData.ExceptionMessages;
 import org.staticData.SessionData;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StudentsRepository {
+public class StudentsRepository implements Database {
 
     private boolean isDataInitialized = false;
     private LinkedHashMap<String, Course> courses;
     private LinkedHashMap<String, Student> students;
-    private RepositoryFilter filter;
-    private RepositorySorter sorter;
+    private DataFilter filter;
+    private DataSorter sorter;
 
-    public StudentsRepository(RepositoryFilter filter, RepositorySorter sorter) {
+    public StudentsRepository(DataFilter filter, DataSorter sorter) {
         this.filter = filter;
         this.sorter = sorter;
     }
@@ -72,17 +76,17 @@ public class StudentsRepository {
                         OutputWriter.displayException(ExceptionMessages.INVALID_SCORE);
                     }
 
-                    if (scores.length > Course.NUMBER_OF_TASKS_ON_EXAM) {
+                    if (scores.length > OnlineCourse.NUMBER_OF_TASKS_ON_EXAM) {
                         OutputWriter.displayException(ExceptionMessages.INVALID_NUMBER_OF_SCORES);
                         continue;
                     }
 
                     if (!this.students.containsKey(studentName)) {
-                        this.students.put(studentName, new Student(studentName));
+                        this.students.put(studentName, new OnlineStudent(studentName));
                     }
 
                     if (!this.courses.containsKey(courseName)) {
-                        this.courses.put(courseName, new Course(courseName));
+                        this.courses.put(courseName, new OnlineCourse(courseName));
                     }
 
                     Course course = this.courses.get(courseName);

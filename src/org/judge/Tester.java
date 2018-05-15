@@ -1,14 +1,14 @@
 package org.judge;
 
+import org.contracts.ContentComparer;
 import org.exceptions.InvalidPathException;
 import org.io.OutputWriter;
-import org.staticData.ExceptionMessages;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tester {
+public class Tester implements ContentComparer {
 
     public void compareContent(String actualOutput, String expectedOutput) throws IOException {
         OutputWriter.writeMessageOnNewLine("Reading files...");

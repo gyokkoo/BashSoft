@@ -1,5 +1,7 @@
 package org.models;
 
+import org.contracts.Course;
+import org.contracts.Student;
 import org.exceptions.DuplicateEntryException;
 import org.exceptions.InvalidStringException;
 
@@ -7,7 +9,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Course {
+public class OnlineCourse implements Course {
 
     public static final Integer NUMBER_OF_TASKS_ON_EXAM = 5;
     public static final Integer MAX_SCORE_ON_EXAM = 100;
@@ -15,7 +17,7 @@ public class Course {
     private String name;
     private LinkedHashMap<String, Student> studentsByName;
 
-    public Course(String name) {
+    public OnlineCourse(String name) {
         this.setName(name);
         this.studentsByName = new LinkedHashMap<>();
     }

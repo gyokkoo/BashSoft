@@ -1,10 +1,10 @@
 package org.io.commands;
 
+import org.contracts.AsynchDownloader;
+import org.contracts.ContentComparer;
+import org.contracts.Database;
 import org.contracts.DirectoryManager;
 import org.exceptions.InvalidInputException;
-import org.judge.Tester;
-import org.network.DownloadManager;
-import org.repository.StudentsRepository;
 import org.staticData.SessionData;
 
 import java.awt.*;
@@ -14,10 +14,10 @@ public class OpenFileCommand extends Command {
 
     public OpenFileCommand(String input,
                            String[] data,
-                           StudentsRepository repository,
-                           Tester tester,
+                           Database repository,
+                           ContentComparer tester,
                            DirectoryManager ioManager,
-                           DownloadManager downloadManager) {
+                           AsynchDownloader downloadManager) {
         super(input, data, repository, tester, ioManager, downloadManager);
     }
 

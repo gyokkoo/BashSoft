@@ -1,5 +1,6 @@
 package org.network;
 
+import org.contracts.AsynchDownloader;
 import org.exceptions.InvalidPathException;
 import org.io.OutputWriter;
 import org.staticData.SessionData;
@@ -11,7 +12,7 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
-public class DownloadManager {
+public class Downloader implements AsynchDownloader {
 
     public void download(String fileUrl) {
         URL url;

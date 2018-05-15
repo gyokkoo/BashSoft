@@ -1,26 +1,23 @@
 package org.io;
 
-import org.contracts.DirectoryManager;
-import org.contracts.Executable;
-import org.contracts.Interpreter;
+import org.contracts.*;
 import org.exceptions.InvalidInputException;
 import org.io.commands.*;
-import org.judge.Tester;
-import org.network.DownloadManager;
-import org.repository.StudentsRepository;
 
 public class CommandInterpreter implements Interpreter{
 
-    private Tester tester;
-    private StudentsRepository repository;
-    private DownloadManager downloadManager;
+    private ContentComparer tester;
+    private Database repository;
+    private AsynchDownloader downloadManager;
     private DirectoryManager inputOutputManager;
 
-    public CommandInterpreter(Tester tester, StudentsRepository repository, DownloadManager downloadManager,
+    public CommandInterpreter(ContentComparer tester,
+                              Database repository,
+                              AsynchDownloader downloader,
                               DirectoryManager inputOutputManager) {
         this.tester = tester;
         this.repository = repository;
-        this.downloadManager = downloadManager;
+        this.downloadManager = downloader;
         this.inputOutputManager = inputOutputManager;
     }
 

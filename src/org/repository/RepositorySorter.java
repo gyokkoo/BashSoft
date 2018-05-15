@@ -1,12 +1,13 @@
 package org.repository;
 
+import org.contracts.DataSorter;
 import org.io.OutputWriter;
 import org.staticData.ExceptionMessages;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RepositorySorter {
+public class RepositorySorter implements DataSorter {
 
     public void printSortedStudents(
             HashMap<String, Double> studentsWithMarks,
