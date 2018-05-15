@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f33db710-1d70-409f-a755-9dfabfd93dd2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/DuplicateEntryException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/InvalidFileNameException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/InvalidPathException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/InvalidStringException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/InvalidCommandException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/exceptions/InvalidInputException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/ChangeAbsolutePathCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/ChangeRelativePathCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/Command.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/CompareFilesCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/GetHelpCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/OpenFileCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/PrintFilteredStudentsCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/ShowCourseCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" afterPath="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/IOManager.java" afterPath="$PROJECT_DIR$/src/org/io/IOManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/judge/Tester.java" afterPath="$PROJECT_DIR$/src/org/judge/Tester.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/models/Course.java" afterPath="$PROJECT_DIR$/src/org/models/Course.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/models/Student.java" afterPath="$PROJECT_DIR$/src/org/models/Student.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/network/DownloadManager.java" afterPath="$PROJECT_DIR$/src/org/network/DownloadManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/staticData/ExceptionMessages.java" afterPath="$PROJECT_DIR$/src/org/staticData/ExceptionMessages.java" />
+      <change beforePath="$PROJECT_DIR$/src/org/io/InputReader.java" afterPath="$PROJECT_DIR$/src/org/io/InputReader.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,135 +33,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="IOManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/io/IOManager.java">
+      <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="399">
+              <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandInterpreter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommandInterpreter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+            <state relative-caret-position="185">
+              <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#CommandInterpreter#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryOpenFile#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryCreateDirectory#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryShowWantedCourse#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryDownloadFile#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryGetHelp#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryParseParametersForOrder#0;class#CommandInterpreter#0" expanded="false" />
-                <element signature="method#tryParseParametersForFilter#0;class#CommandInterpreter#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RepositoryFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/repository/RepositoryFilter.java">
+      <file leaf-file-name="DropDatabaseCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RepositorySorter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/repository/RepositorySorter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-471">
-              <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentsRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/repository/StudentsRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="125" column="32" lean-forward="false" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/models/Student.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="412">
+              <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#865#866#0" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#956#957#0" expanded="true" />
-                <element signature="e#1028#1029#0" expanded="true" />
-                <element signature="e#1085#1086#0" expanded="true" />
-                <element signature="e#1159#1160#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DuplicateEntryException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/exceptions/DuplicateEntryException.java">
+      <file leaf-file-name="InputReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/io/InputReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-              <folding>
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#413#414#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvalidPathException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/exceptions/InvalidPathException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#213#214#0" expanded="true" />
-                <element signature="e#248#249#0" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Course.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/models/Course.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#754#755#0" expanded="true" />
-                <element signature="e#786#787#0" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#907#908#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExceptionMessages.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/staticData/ExceptionMessages.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="520">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadFileCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,6 +113,7 @@
       <find>displa</find>
       <find>extractNameOfFile</find>
       <find>display</find>
+      <find>interpre</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,14 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/IOManager.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/ExceptionMessages.java" />
-        <option value="$PROJECT_DIR$/src/OutputWriter.java" />
-        <option value="$PROJECT_DIR$/src/StudentsRepository.java" />
-        <option value="$PROJECT_DIR$/src/Tester.java" />
-        <option value="$PROJECT_DIR$/mismatch.txt" />
-        <option value="$PROJECT_DIR$/test1.txt" />
         <option value="$PROJECT_DIR$/test2.txt" />
         <option value="$PROJECT_DIR$/test3.txt" />
         <option value="$PROJECT_DIR$/src/io/OutputWriter.java" />
@@ -234,7 +159,25 @@
         <option value="$PROJECT_DIR$/src/org/exceptions/DuplicateEntryException.java" />
         <option value="$PROJECT_DIR$/src/org/models/Course.java" />
         <option value="$PROJECT_DIR$/src/org/models/Student.java" />
+        <option value="$PROJECT_DIR$/src/org/exceptions/InvalidCommandException.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/Command.java" />
+        <option value="$PROJECT_DIR$/src/org/exceptions/InvalidInputException.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/OpenFileCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/CompareFilesCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/ChangeRelativePathCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/ChangeAbsolutePathCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/GetHelpCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/ShowCourseCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/PrintFilteredStudentsCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" />
+        <option value="$PROJECT_DIR$/src/org/io/InputReader.java" />
       </list>
     </option>
   </component>
@@ -323,6 +266,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BashSoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BashSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BashSoft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BashSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="judge" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BashSoft" type="b2602c69:ProjectViewProjectNode" />
@@ -476,12 +434,12 @@
       <workItem from="1526135583403" duration="9434000" />
       <workItem from="1526189211217" duration="9357000" />
       <workItem from="1526299915733" duration="8825000" />
-      <workItem from="1526361464888" duration="6993000" />
+      <workItem from="1526361464888" duration="8353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34609000" />
+    <option name="totallyTimeSpent" value="35969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="29" width="1938" height="1060" extended-state="6" />
@@ -529,152 +487,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/io/InputReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#337#338#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/repository/RepositorySorter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/repository/StudentsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="method#getStudentMarkInCourse#0;class#StudentsRepository#0" expanded="false" />
-            <element signature="method#isQueryForStudentPossible#0;class#StudentsRepository#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/models/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/datamax.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2688">
-          <caret line="128" column="27" lean-forward="true" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CommandInterpreter#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryOpenFile#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryCreateDirectory#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryShowWantedCourse#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryDownloadFile#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryGetHelp#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryParseParametersForOrder#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryParseParametersForFilter#0;class#CommandInterpreter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/network/DownloadManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/io/OutputWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#98#99#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/io/IOManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#traverseDirectory#0;class#IOManager#0" expanded="false" />
-            <element signature="method#createDirectoryInCurrentFolder#0;class#IOManager#0" expanded="false" />
-            <element signature="e#2972#2973#0" expanded="false" />
-            <element signature="e#3018#3019#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/staticData/ExceptionMessages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="51" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/staticData/SessionData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="70" lean-forward="false" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BashSoft.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -768,29 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/io/InputReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#337#338#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/datamax.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -928,29 +721,220 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/exceptions/InvalidCommandException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1075#1076#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1232#1233#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/exceptions/InvalidInputException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/OpenFileCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/CompareFilesCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/ChangeRelativePathCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/ChangeAbsolutePathCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/repository/StudentsRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="125" column="32" lean-forward="false" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="32" />
+        <state relative-caret-position="328">
+          <caret line="109" column="33" lean-forward="false" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/GetHelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="52" column="44" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/ShowCourseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/PrintFilteredStudentsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        <state relative-caret-position="185">
+          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CommandInterpreter#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryOpenFile#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryCreateDirectory#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryShowWantedCourse#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryDownloadFile#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryGetHelp#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryParseParametersForOrder#0;class#CommandInterpreter#0" expanded="false" />
-            <element signature="method#tryParseParametersForFilter#0;class#CommandInterpreter#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/io/InputReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

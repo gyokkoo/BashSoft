@@ -2,7 +2,6 @@ package org.io;
 
 import org.staticData.SessionData;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class InputReader {
@@ -21,11 +20,7 @@ public class InputReader {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         while (!END_COMMAND.equals(input)) {
-            try {
-                this.interpreter.interpretCommand(input);
-            } catch (IOException e) {
-                OutputWriter.displayException(e.getMessage());
-            }
+            this.interpreter.interpretCommand(input);
             OutputWriter.writeMessage(SessionData.currentPath + " > ");
 
             input = scanner.nextLine();
