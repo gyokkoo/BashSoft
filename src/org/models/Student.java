@@ -1,6 +1,5 @@
 package org.models;
 
-import org.io.OutputWriter;
 import org.staticData.ExceptionMessages;
 
 import java.util.Arrays;
@@ -42,10 +41,10 @@ public class Student {
 
     public void enrollInCourse(Course course) {
         if (this.enrolledCourses.containsKey(course.getName())) {
-            OutputWriter.displayException(String.format(
+            String message = String.format(
                     ExceptionMessages.STUDENT_ALREADY_ENROLLED_IN_COURSE,
-                    this.userName, course.getName()));
-            return;
+                    this.userName, course.getName());
+            throw new IllegalArgumentException(message);
         }
 
         this.enrolledCourses.put(course.getName(), course);
@@ -53,13 +52,11 @@ public class Student {
 
     public void setMarksOnCourse(String courseName, int... scores) {
         if (!this.enrolledCourses.containsKey(courseName)) {
-            OutputWriter.displayException(ExceptionMessages.NOT_ENROLLED_IN_COURSE);
-            return;
+            throw new IllegalArgumentException(ExceptionMessages.NOT_ENROLLED_IN_COURSE);
         }
 
         if (scores.length > Course.NUMBER_OF_TASKS_ON_EXAM) {
-            OutputWriter.displayException(ExceptionMessages.INVALID_NUMBER_OF_SCORES);
-            return;
+            throw new IllegalArgumentException(ExceptionMessages.INVALID_NUMBER_OF_SCORES);
         }
 
         double mark = calculateMark(scores);

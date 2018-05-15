@@ -1,6 +1,7 @@
 package org.judge;
 
 import org.io.OutputWriter;
+import org.staticData.ExceptionMessages;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class Tester {
 
-    public void compareContent(String actualOutput, String expectedOutput) {
+    public void compareContent(String actualOutput, String expectedOutput) throws IOException {
         OutputWriter.writeMessageOnNewLine("Reading files...");
         String mismatchPath = getMismatchPath(expectedOutput);
         List<String> actualOutputString = readTextFile(actualOutput);
@@ -25,7 +26,7 @@ public class Tester {
     private boolean compareStrings(
             List<String> actualOutputString,
             List<String> expectedOutputString,
-            String mismatchPath) {
+            String mismatchPath) throws IOException {
         OutputWriter.writeMessageOnNewLine("Comparing files...");
         String output;
         boolean isMismatch = false;
@@ -49,8 +50,8 @@ public class Tester {
             }
 
             writer.close();
-        } catch (Exception e) {
-            OutputWriter.writeMessageOnNewLine("Error!");
+        } catch (IOException e) {
+            throw new IOException(ExceptionMessages.INVALID_PATH);
         }
 
         return isMismatch;

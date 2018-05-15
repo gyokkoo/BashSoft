@@ -28,6 +28,20 @@ public class CommandInterpreter {
     public void interpretCommand(String input) throws IOException {
         String[] data = input.split("\\s+");
         String command = data[0];
+        try {
+            parseCommand(input, data, command);
+        } catch (IllegalArgumentException iae) {
+            OutputWriter.displayException(iae.getMessage());
+        } catch (IOException iae) {
+            OutputWriter.displayException(iae.getMessage());
+        } catch (StringIndexOutOfBoundsException iae) {
+            OutputWriter.displayException(iae.getMessage());
+        } catch (Throwable t) {
+            OutputWriter.displayException(t.getMessage());
+        }
+    }
+
+    private void parseCommand(String input, String[] data, String command) throws IOException {
         switch (command) {
             case "open":
                 tryOpenFile(input, data);
@@ -114,7 +128,7 @@ public class CommandInterpreter {
         }
     }
 
-    private void tryCompareFiles(String input, String[] data) {
+    private void tryCompareFiles(String input, String[] data) throws IOException {
         if (data.length != 3) {
             displayInvalidCommandMessage(input);
             return;
@@ -125,7 +139,7 @@ public class CommandInterpreter {
         this.tester.compareContent(firstPath, secondPath);
     }
 
-    private void tryChangeRelativePath(String input, String[] data) {
+    private void tryChangeRelativePath(String input, String[] data) throws IOException {
         if (data.length != 2) {
             displayInvalidCommandMessage(input);
             return;
@@ -135,7 +149,7 @@ public class CommandInterpreter {
         this.inputOutputManager.changeCurrentDirRelativePath(relativePath);
     }
 
-    private void tryChangeAbsolutePath(String input, String[] data) {
+    private void tryChangeAbsolutePath(String input, String[] data) throws IOException {
         if (data.length != 2) {
             displayInvalidCommandMessage(input);
             return;
@@ -227,7 +241,7 @@ public class CommandInterpreter {
         }
 
         String fileUrl = data[1];
-        this.downloadManager.download(fileUrl);
+        this.downloadManager.downloadOnNewThread(fileUrl);
     }
 
     private void tryGetHelp(String input, String[] data) {

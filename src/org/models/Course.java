@@ -1,6 +1,5 @@
 package org.models;
 
-import org.io.OutputWriter;
 import org.staticData.ExceptionMessages;
 
 import java.util.Collections;
@@ -38,10 +37,10 @@ public class Course {
 
     public void enrollStudent(Student student) {
         if (this.studentsByName.containsKey(student.getUserName())) {
-            OutputWriter.displayException(String.format(
+            String message = String.format(
                     ExceptionMessages.STUDENT_ALREADY_ENROLLED_IN_COURSE,
-                    student.getUserName(), this.name));
-            return;
+                    student.getUserName(), this.name);
+            throw new IllegalArgumentException(message);
         }
 
         this.studentsByName.put(student.getUserName(), student);

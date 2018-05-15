@@ -27,9 +27,8 @@ public class StudentsRepository {
     }
 
     public void loadData(String fileName) throws IOException {
-        if (this.isDataInitialized) {
-            OutputWriter.displayException(ExceptionMessages.DATA_ALREADY_INITIALIZED);
-            return;
+        if (!this.isDataInitialized) {
+            throw new RuntimeException(ExceptionMessages.DATA_NOT_INITIALIZED);
         }
 
         this.students = new LinkedHashMap<>();

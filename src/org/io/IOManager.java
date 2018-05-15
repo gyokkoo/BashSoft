@@ -4,13 +4,15 @@ import org.staticData.ExceptionMessages;
 import org.staticData.SessionData;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 public class IOManager {
 
     public void traverseDirectory(int depth) {
-        LinkedList<File> subFolders = new LinkedList<>();
+        Queue<File> subFolders = new LinkedList<>();
 
         String path = SessionData.currentPath;
         int initialIndentation = path.split("\\\\").length;
@@ -18,7 +20,7 @@ public class IOManager {
 
         subFolders.add(root);
         while (subFolders.size() != 0) {
-            File currentFolder = subFolders.removeFirst();
+            File currentFolder = subFolders.poll();
             int currentIndentation = currentFolder.toString().split("\\\\").length - initialIndentation;
             if (depth - currentIndentation < 0) {
                 break;
@@ -46,19 +48,21 @@ public class IOManager {
     public void createDirectoryInCurrentFolder(String name) {
         String path = getCurrentDirectoryPath() + "\\" + name;
         File file = new File(path);
-        file.mkdir();
+        boolean isMade = file.mkdir();
+        if (!isMade) {
+            throw new IllegalArgumentException(ExceptionMessages.FORBIDDEN_SYMBOLS_CONTAINED_IN_NAME);
+        }
     }
 
-    public void changeCurrentDirRelativePath(String relativePath) {
+    public void changeCurrentDirRelativePath(String relativePath) throws IOException {
         if (relativePath.equals("..")) {
             // go one directory up
             try {
                 String currentPath = SessionData.currentPath;
                 int indexOfLastSlash = currentPath.lastIndexOf("\\");
-                String newPath = currentPath.substring(0, indexOfLastSlash);
-                SessionData.currentPath = newPath;
-            } catch (StringIndexOutOfBoundsException sioobe) {
-                OutputWriter.displayException(ExceptionMessages.INVALID_DESTINATION);
+                SessionData.currentPath = currentPath.substring(0, indexOfLastSlash);
+            } catch (StringIndexOutOfBoundsException e) {
+                throw new StringIndexOutOfBoundsException(ExceptionMessages.INVALID_DESTINATION);
             }
         } else {
             // go one directory down
@@ -68,11 +72,10 @@ public class IOManager {
         }
     }
 
-    public void changeCurrentDirAbsolute(String absolutePath) {
+    public void changeCurrentDirAbsolute(String absolutePath) throws IOException {
         File file = new File(absolutePath);
         if (!file.exists()) {
-            OutputWriter.displayException(ExceptionMessages.INVALID_PATH);
-            return;
+            throw new IOException(ExceptionMessages.INVALID_PATH);
         }
 
         SessionData.currentPath = absolutePath;
