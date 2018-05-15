@@ -23,4 +23,5 @@ public class ExceptionMessages {
 
     public static final String INVALID_SCORE =
             "The number for the score you've entered is not in the range of 0 - 100";
+    public static final String NULL_OR_EMPTY_VALUE = "The value of the variable CANNOT be null or empty!";
 }

@@ -4,29 +4,51 @@ import org.io.OutputWriter;
 import org.staticData.ExceptionMessages;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Student {
 
-    public String userName;
-    public LinkedHashMap<String, Course> enrolledCourses;
-    public LinkedHashMap<String, Double> marksByCourseName;
+    private String userName;
+    private LinkedHashMap<String, Course> enrolledCourses;
+    private LinkedHashMap<String, Double> marksByCourseName;
 
     public Student(String userName) {
-        this.userName = userName;
+        this.setUserName(userName);
         this.enrolledCourses = new LinkedHashMap<>();
         this.marksByCourseName = new LinkedHashMap<>();
     }
 
+    public void setUserName(String userName) {
+        if (userName == null || userName.equals("")) {
+            throw new IllegalArgumentException(ExceptionMessages.NULL_OR_EMPTY_VALUE);
+        }
+
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public Map<String, Course> getEnrolledCourses() {
+        return Collections.unmodifiableMap(this.enrolledCourses);
+    }
+
+    public Map<String, Double> getMarksByCourseName() {
+        return Collections.unmodifiableMap(this.marksByCourseName);
+    }
+
     public void enrollInCourse(Course course) {
-        if (this.enrolledCourses.containsKey(course.name)) {
+        if (this.enrolledCourses.containsKey(course.getName())) {
             OutputWriter.displayException(String.format(
                     ExceptionMessages.STUDENT_ALREADY_ENROLLED_IN_COURSE,
-                    this.userName, course.name));
+                    this.userName, course.getName()));
             return;
         }
 
-        this.enrolledCourses.put(course.name, course);
+        this.enrolledCourses.put(course.getName(), course);
     }
 
     public void setMarksOnCourse(String courseName, int... scores) {
