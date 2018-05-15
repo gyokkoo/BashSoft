@@ -1,5 +1,6 @@
 package org.judge;
 
+import org.exceptions.InvalidPathException;
 import org.io.OutputWriter;
 import org.staticData.ExceptionMessages;
 
@@ -51,7 +52,7 @@ public class Tester {
 
             writer.close();
         } catch (IOException e) {
-            throw new IOException(ExceptionMessages.INVALID_PATH);
+            throw new InvalidPathException();
         }
 
         return isMismatch;

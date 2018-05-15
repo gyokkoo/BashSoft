@@ -1,6 +1,7 @@
 package org.io;
 
-import org.staticData.ExceptionMessages;
+import org.exceptions.InvalidFileNameException;
+import org.exceptions.InvalidPathException;
 import org.staticData.SessionData;
 
 import java.io.File;
@@ -50,7 +51,7 @@ public class IOManager {
         File file = new File(path);
         boolean isMade = file.mkdir();
         if (!isMade) {
-            throw new IllegalArgumentException(ExceptionMessages.FORBIDDEN_SYMBOLS_CONTAINED_IN_NAME);
+            throw new InvalidFileNameException();
         }
     }
 
@@ -62,7 +63,7 @@ public class IOManager {
                 int indexOfLastSlash = currentPath.lastIndexOf("\\");
                 SessionData.currentPath = currentPath.substring(0, indexOfLastSlash);
             } catch (StringIndexOutOfBoundsException e) {
-                throw new StringIndexOutOfBoundsException(ExceptionMessages.INVALID_DESTINATION);
+                throw new InvalidPathException();
             }
         } else {
             // go one directory down
@@ -72,10 +73,10 @@ public class IOManager {
         }
     }
 
-    public void changeCurrentDirAbsolute(String absolutePath) throws IOException {
+    public void changeCurrentDirAbsolute(String absolutePath) {
         File file = new File(absolutePath);
         if (!file.exists()) {
-            throw new IOException(ExceptionMessages.INVALID_PATH);
+            throw new InvalidPathException();
         }
 
         SessionData.currentPath = absolutePath;

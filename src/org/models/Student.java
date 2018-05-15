@@ -1,5 +1,7 @@
 package org.models;
 
+import org.exceptions.DuplicateEntryException;
+import org.exceptions.InvalidStringException;
 import org.staticData.ExceptionMessages;
 
 import java.util.Arrays;
@@ -21,7 +23,7 @@ public class Student {
 
     public void setUserName(String userName) {
         if (userName == null || userName.equals("")) {
-            throw new IllegalArgumentException(ExceptionMessages.NULL_OR_EMPTY_VALUE);
+            throw new InvalidStringException();
         }
 
         this.userName = userName;
@@ -41,10 +43,7 @@ public class Student {
 
     public void enrollInCourse(Course course) {
         if (this.enrolledCourses.containsKey(course.getName())) {
-            String message = String.format(
-                    ExceptionMessages.STUDENT_ALREADY_ENROLLED_IN_COURSE,
-                    this.userName, course.getName());
-            throw new IllegalArgumentException(message);
+            throw new DuplicateEntryException(this.userName, course.getName());
         }
 
         this.enrolledCourses.put(course.getName(), course);

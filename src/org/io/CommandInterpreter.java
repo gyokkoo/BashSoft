@@ -1,5 +1,9 @@
 package org.io;
 
+import org.exceptions.DuplicateEntryException;
+import org.exceptions.InvalidFileNameException;
+import org.exceptions.InvalidPathException;
+import org.exceptions.InvalidStringException;
 import org.judge.Tester;
 import org.network.DownloadManager;
 import org.repository.StudentsRepository;
@@ -30,6 +34,8 @@ public class CommandInterpreter {
         String command = data[0];
         try {
             parseCommand(input, data, command);
+        } catch (DuplicateEntryException | InvalidFileNameException | InvalidPathException | InvalidStringException e) {
+            OutputWriter.displayException(e.getMessage());
         } catch (IllegalArgumentException iae) {
             OutputWriter.displayException(iae.getMessage());
         } catch (IOException iae) {

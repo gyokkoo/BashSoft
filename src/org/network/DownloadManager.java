@@ -1,13 +1,12 @@
 package org.network;
 
+import org.exceptions.InvalidPathException;
 import org.io.OutputWriter;
-import org.staticData.ExceptionMessages;
 import org.staticData.SessionData;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -64,10 +63,10 @@ public class DownloadManager {
         thread.start();
     }
 
-    private String extractNameOfFile(String fileUrl) throws MalformedURLException {
+    private String extractNameOfFile(String fileUrl) {
         int indexOfLastSlash = fileUrl.lastIndexOf('/');
         if (indexOfLastSlash == -1) {
-            throw new MalformedURLException(ExceptionMessages.INVALID_PATH);
+            throw new InvalidPathException();
         }
 
         return fileUrl.substring(indexOfLastSlash + 1);

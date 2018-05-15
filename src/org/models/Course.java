@@ -1,6 +1,7 @@
 package org.models;
 
-import org.staticData.ExceptionMessages;
+import org.exceptions.DuplicateEntryException;
+import org.exceptions.InvalidStringException;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -21,7 +22,7 @@ public class Course {
 
     public void setName(String name) {
         if (name == null || name.equals("")) {
-            throw new IllegalArgumentException(ExceptionMessages.NULL_OR_EMPTY_VALUE);
+            throw new InvalidStringException();
         }
 
         this.name = name;
@@ -37,10 +38,7 @@ public class Course {
 
     public void enrollStudent(Student student) {
         if (this.studentsByName.containsKey(student.getUserName())) {
-            String message = String.format(
-                    ExceptionMessages.STUDENT_ALREADY_ENROLLED_IN_COURSE,
-                    student.getUserName(), this.name);
-            throw new IllegalArgumentException(message);
+            throw new DuplicateEntryException(student.getUserName(), this.name);
         }
 
         this.studentsByName.put(student.getUserName(), student);
