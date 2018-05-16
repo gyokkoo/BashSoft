@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f33db710-1d70-409f-a755-9dfabfd93dd2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/annotations/Alias.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/org/annotations/Inject.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/org/Program.java" afterPath="$PROJECT_DIR$/src/org/Program.java" />
       <change beforePath="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" afterPath="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/ChangeAbsolutePathCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/ChangeAbsolutePathCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/ChangeRelativePathCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/ChangeRelativePathCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/Command.java" afterPath="$PROJECT_DIR$/src/org/io/commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/CompareFilesCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/CompareFilesCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/DisplayCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/DisplayCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/GetHelpCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/GetHelpCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/OpenFileCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/OpenFileCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/PrintFilteredStudentsCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/PrintFilteredStudentsCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/ShowCourseCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/ShowCourseCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java" afterPath="$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +21,8 @@
       <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="274">
+              <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +33,8 @@
       <file leaf-file-name="CommandInterpreter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="-1751">
+              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -217,7 +198,6 @@
         <option value="$PROJECT_DIR$/src/org/io/commands/Command.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/DownloadFileCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/MakeDirectoryCommand.java" />
-        <option value="$PROJECT_DIR$/src/org/Program.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/TraverseFoldersCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/PrintOrderedStudentsCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/DownloadAsynchCommand.java" />
@@ -230,6 +210,7 @@
         <option value="$PROJECT_DIR$/src/org/io/commands/ReadDatabaseCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/DropDatabaseCommand.java" />
         <option value="$PROJECT_DIR$/src/org/io/commands/DisplayCommand.java" />
+        <option value="$PROJECT_DIR$/src/org/Program.java" />
         <option value="$PROJECT_DIR$/src/org/io/CommandInterpreter.java" />
       </list>
     </option>
@@ -303,21 +284,6 @@
               <item name="BashSoft" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BashSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BashSoft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BashSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BashSoft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -469,12 +435,12 @@
       <workItem from="1526361464888" duration="10597000" />
       <workItem from="1526404468223" duration="812000" />
       <workItem from="1526405327016" duration="5858000" />
-      <workItem from="1526447188332" duration="8692000" />
+      <workItem from="1526447188332" duration="9145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53575000" />
+    <option name="totallyTimeSpent" value="54028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="29" width="1938" height="1060" extended-state="6" />
@@ -526,7 +492,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java</url>
-          <line>125</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
@@ -1014,16 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/io/OutputWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1042,10 +998,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/io/CommandInterpreter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="-1751">
+          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
