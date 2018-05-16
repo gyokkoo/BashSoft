@@ -1,20 +1,18 @@
 package org.io.commands;
 
-import org.contracts.AsynchDownloader;
-import org.contracts.ContentComparer;
+import org.annotations.Alias;
+import org.annotations.Inject;
 import org.contracts.Database;
-import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
 
+@Alias("readdb")
 public class ReadDatabaseCommand extends Command {
 
-    public ReadDatabaseCommand(String input,
-                               String[] data,
-                               Database repository,
-                               ContentComparer tester,
-                               DirectoryManager ioManager,
-                               AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+    @Inject
+    private Database repository;
+
+    public ReadDatabaseCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override
@@ -24,6 +22,6 @@ public class ReadDatabaseCommand extends Command {
         }
 
         String fileName = this.getData()[1];
-        this.getRepository().loadData(fileName);
+        this.repository.loadData(fileName);
     }
 }

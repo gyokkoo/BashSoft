@@ -1,19 +1,18 @@
 package org.io.commands;
 
-import org.contracts.AsynchDownloader;
-import org.contracts.ContentComparer;
+import org.annotations.Alias;
+import org.annotations.Inject;
 import org.contracts.Database;
-import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
 
+@Alias("show")
 public class ShowCourseCommand extends Command {
-    public ShowCourseCommand(String input,
-                             String[] data,
-                             Database repository,
-                             ContentComparer tester,
-                             DirectoryManager ioManager,
-                             AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+
+    @Inject
+    private Database repository;
+
+    public ShowCourseCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override
@@ -24,13 +23,13 @@ public class ShowCourseCommand extends Command {
 
         if (this.getData().length == 2) {
             String courseName = this.getData()[1];
-            this.getRepository().getStudentsByCourse(courseName);
+            this.repository.getStudentsByCourse(courseName);
         }
 
         if (this.getData().length == 3) {
             String courseName = this.getData()[1];
             String userName = this.getData()[2];
-            this.getRepository().getStudentMarkInCourse(courseName, userName);
+            this.repository.getStudentMarkInCourse(courseName, userName);
         }
     }
 }

@@ -8,42 +8,12 @@ public abstract class Command implements Executable{
     private String input;
     private String[] data;
 
-    private Database repository;
-    private ContentComparer tester;
-    private DirectoryManager ioManager;
-    private AsynchDownloader downloadManager;
-
-    public Command(String input,
-                   String[] data,
-                   Database repository,
-                   ContentComparer contentComparer,
-                   DirectoryManager ioManager,
-                   AsynchDownloader downloader) {
+    protected Command(String input, String[] data) {
         this.setInput(input);
         this.setData(data);
-        this.repository = repository;
-        this.tester = contentComparer;
-        this.ioManager = ioManager;
-        this.downloadManager = downloader;
     }
 
     public abstract void execute() throws Exception;
-
-    protected Database getRepository() {
-        return repository;
-    }
-
-    protected ContentComparer getTester() {
-        return tester;
-    }
-
-    protected DirectoryManager getIoManager() {
-        return ioManager;
-    }
-
-    protected AsynchDownloader getDownloadManager() {
-        return downloadManager;
-    }
 
     protected String getInput() {
         return input;

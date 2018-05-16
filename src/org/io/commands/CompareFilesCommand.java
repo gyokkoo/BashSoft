@@ -1,20 +1,18 @@
 package org.io.commands;
 
-import org.contracts.AsynchDownloader;
+import org.annotations.Alias;
+import org.annotations.Inject;
 import org.contracts.ContentComparer;
-import org.contracts.Database;
-import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
 
+@Alias("cmp")
 public class CompareFilesCommand extends Command {
 
-    public CompareFilesCommand(String input,
-                               String[] data,
-                               Database repository,
-                               ContentComparer tester,
-                               DirectoryManager ioManager,
-                               AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+    @Inject
+    private ContentComparer tester;
+
+    public CompareFilesCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override
@@ -25,6 +23,6 @@ public class CompareFilesCommand extends Command {
 
         String firstPath = this.getData()[1];
         String secondPath = this.getData()[2];
-        this.getTester().compareContent(firstPath, secondPath);
+        this.tester.compareContent(firstPath, secondPath);
     }
 }

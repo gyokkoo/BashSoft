@@ -22,7 +22,7 @@ public class Program {
         Database repository = new StudentsRepository(repositoryFilter, repositorySorter);
 
         Interpreter interpreter = new CommandInterpreter(
-                contentComparer, repository, downloadManager, ioManager);
+                contentComparer, downloadManager, ioManager, repositorySorter, repositoryFilter, repository);
         Reader reader = new InputReader(interpreter);
 
         try {

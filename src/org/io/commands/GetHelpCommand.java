@@ -1,21 +1,12 @@
 package org.io.commands;
 
-import org.contracts.AsynchDownloader;
-import org.contracts.ContentComparer;
-import org.contracts.Database;
-import org.contracts.DirectoryManager;
 import org.exceptions.InvalidInputException;
 import org.io.OutputWriter;
 
 public class GetHelpCommand extends Command {
 
-    public GetHelpCommand(String input,
-                          String[] data,
-                          Database repository,
-                          ContentComparer tester,
-                          DirectoryManager ioManager,
-                          AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+    public GetHelpCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override

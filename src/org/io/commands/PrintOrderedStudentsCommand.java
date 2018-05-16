@@ -1,20 +1,16 @@
 package org.io.commands;
 
-import org.contracts.AsynchDownloader;
-import org.contracts.ContentComparer;
+import org.annotations.Inject;
 import org.contracts.Database;
-import org.contracts.DirectoryManager;
 import org.exceptions.InvalidCommandException;
 
 public class PrintOrderedStudentsCommand extends Command {
 
-    public PrintOrderedStudentsCommand(String input,
-                                       String[] data,
-                                       Database repository,
-                                       ContentComparer tester,
-                                       DirectoryManager ioManager,
-                                       AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+    @Inject
+    private Database repository;
+
+    public PrintOrderedStudentsCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override
@@ -41,13 +37,13 @@ public class PrintOrderedStudentsCommand extends Command {
         }
 
         if (takeQuantity.equals("all")) {
-            this.getRepository().orderAndTake(courseName, orderType);
+            this.repository.orderAndTake(courseName, orderType);
             return;
         }
 
         try {
             int studentsToTake = Integer.parseInt(takeQuantity);
-            this.getRepository().orderAndTake(courseName, orderType, studentsToTake);
+            this.repository.orderAndTake(courseName, orderType, studentsToTake);
         } catch (NumberFormatException nfe) {
             throw new InvalidCommandException(takeCommand);
             // OutputWriter.displayException(ExceptionMessages.INVALID_TAKE_QUANTITY_PARAMETER);

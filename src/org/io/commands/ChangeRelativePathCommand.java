@@ -1,30 +1,28 @@
 package org.io.commands;
 
-
-import org.contracts.AsynchDownloader;
-import org.contracts.ContentComparer;
-import org.contracts.Database;
+import org.annotations.Alias;
+import org.annotations.Inject;
 import org.contracts.DirectoryManager;
-import org.exceptions.InvalidCommandException;
+import org.exceptions.InvalidInputException;
 
+@Alias("cdrel")
 public class ChangeRelativePathCommand extends Command {
 
-    public ChangeRelativePathCommand(String input,
-                                     String[] data,
-                                     Database repository,
-                                     ContentComparer tester,
-                                     DirectoryManager ioManager,
-                                     AsynchDownloader downloader) {
-        super(input, data, repository, tester, ioManager, downloader);
+    @Inject
+    private DirectoryManager ioManager;
+
+    public ChangeRelativePathCommand(String input, String[] data) {
+        super(input, data);
     }
 
     @Override
     public void execute() throws Exception {
-        if (this.getData().length != 2) {
-            throw new InvalidCommandException(this.getInput());
+        String[] data = this.getData();
+        if (data.length != 2) {
+            throw new InvalidInputException(this.getInput());
         }
 
-        String relativePath = this.getData()[1];
-        this.getIoManager().changeCurrentDirRelativePath(relativePath);
+        String relativePath = data[1];
+        this.ioManager.changeCurrentDirRelativePath(relativePath);
     }
 }
