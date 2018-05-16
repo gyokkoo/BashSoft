@@ -49,6 +49,8 @@ public class GetHelpCommand extends Command {
                 .append(System.lineSeparator());
         builder.append("download file on new thread - downloadAsynch URL (saved in the current directory)")
                 .append(System.lineSeparator());
+        builder.append("display data entities - display students/courses ascending/descending")
+                .append(System.lineSeparator());
         builder.append("get help – help")
                 .append(System.lineSeparator());
         OutputWriter.writeMessage(builder.toString());

@@ -1,6 +1,7 @@
 package org.repository;
 
 import org.contracts.*;
+import org.dataStructures.SimpleSortedList;
 import org.io.OutputWriter;
 import org.models.OnlineCourse;
 import org.models.OnlineStudent;
@@ -10,10 +11,7 @@ import org.staticData.SessionData;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,8 +29,8 @@ public class StudentsRepository implements Database {
     }
 
     public void loadData(String fileName) throws IOException {
-        if (!this.isDataInitialized) {
-            throw new RuntimeException(ExceptionMessages.DATA_NOT_INITIALIZED);
+        if (this.isDataInitialized) {
+            throw new RuntimeException(ExceptionMessages.DATA_ALREADY_INITIALIZED);
         }
 
         this.students = new LinkedHashMap<>();
@@ -123,6 +121,22 @@ public class StudentsRepository implements Database {
         for (Map.Entry<String, Student> student : this.courses.get(courseName).getStudentsByName().entrySet()) {
             this.getStudentMarkInCourse(courseName, student.getKey());
         }
+    }
+
+    @Override
+    public SimpleSortedList<Course> getAllCoursesSorted(Comparator<Course> cmp) {
+        SimpleSortedList<Course> courseSortedList = new SimpleSortedList<>(Course.class, cmp);
+        courseSortedList.addAll(this.courses.values());
+
+        return courseSortedList;
+    }
+
+    @Override
+    public SimpleSortedList<Student> getAllStudentsSorted(Comparator<Student> cmp) {
+        SimpleSortedList<Student> studentSortedList = new SimpleSortedList<>(Student.class, cmp);
+        studentSortedList.addAll(this.students.values());
+
+        return studentSortedList;
     }
 
     private boolean isQueryForCoursePossible(String courseName) {

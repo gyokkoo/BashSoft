@@ -74,4 +74,14 @@ public class OnlineStudent implements Student {
                 (double) (OnlineCourse.NUMBER_OF_TASKS_ON_EXAM * OnlineCourse.MAX_SCORE_ON_EXAM);
         return percentageOfSolvedExam * 4 + 2;
     }
+
+    @Override
+    public int compareTo(Student other) {
+        return this.getUserName().compareTo(other.getUserName());
+    }
+
+    @Override
+    public String toString() {
+        return this.getUserName();
+    }
 }

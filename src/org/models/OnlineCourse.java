@@ -45,4 +45,14 @@ public class OnlineCourse implements Course {
 
         this.studentsByName.put(student.getUserName(), student);
     }
+
+    @Override
+    public int compareTo(Course other) {
+        return this.getName().compareTo(other.getName());
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

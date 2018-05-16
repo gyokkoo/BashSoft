@@ -2,7 +2,7 @@ package org.contracts;
 
 import java.util.Map;
 
-public interface Course {
+public interface Course extends Comparable<Course> {
 
     String getName();
 
