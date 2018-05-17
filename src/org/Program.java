@@ -14,7 +14,7 @@ import org.repository.StudentsRepository;
 public class Program {
 
     public static void main(String[] args) {
-        org.contracts.ContentComparer contentComparer = new Tester();
+        ContentComparer contentComparer = new Tester();
         Downloader downloadManager = new Downloader();
         DirectoryManager ioManager = new IOManager();
         DataSorter repositorySorter = new RepositorySorter();
