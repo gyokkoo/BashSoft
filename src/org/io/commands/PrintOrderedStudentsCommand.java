@@ -1,9 +1,11 @@
 package org.io.commands;
 
+import org.annotations.Alias;
 import org.annotations.Inject;
 import org.contracts.Database;
 import org.exceptions.InvalidCommandException;
 
+@Alias("order")
 public class PrintOrderedStudentsCommand extends Command {
 
     @Inject

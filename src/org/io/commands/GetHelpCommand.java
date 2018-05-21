@@ -1,8 +1,10 @@
 package org.io.commands;
 
+import org.annotations.Alias;
 import org.exceptions.InvalidInputException;
 import org.io.OutputWriter;
 
+@Alias("help")
 public class GetHelpCommand extends Command {
 
     public GetHelpCommand(String input, String[] data) {

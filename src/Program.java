@@ -1,5 +1,3 @@
-package org;
-
 import org.contracts.*;
 import org.io.CommandInterpreter;
 import org.io.IOManager;
